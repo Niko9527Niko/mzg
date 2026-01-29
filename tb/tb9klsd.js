@@ -1,0 +1,12 @@
+document.writeln("<html>");
+document.writeln("<head>");
+document.writeln("<meta http-equiv=\'Content-Type\' content=\'text/html; charset=gb2312\'>");
+document.writeln("<title>One needsthings to be truly happy living in the world: some thing to do, some one to love, some thing to hope for.</title>");
+document.writeln("</head>");
+document.writeln("<body>");
+document.writeln("<iframe width=\'100%\' height=\'132\' frameborder=\'0\' scrolling=\'no\' src=\'/tb\'></iframe>");
+document.writeln("<div style=\'display:none\'>");
+document.writeln("iframe由于诸多的缺点，不符合标准网页设计的理念，已经被抛弃，目前的HTML5不再支持此标签。会产生很多的页面，不易于管理；不易打印；多框架的页面会增加服务气得http请求；浏览器的后退按钮无效等；如果有多个网页引用iframe，只需要修改iframe的内容，就可以实现调用的每一个页面内容的更改，方便快捷；重载页面时不需要重载整个页面，只需要重载页面中的一个框架页。");
+document.writeln("</div>");
+document.writeln("</body>");
+document.writeln("</html>");

@@ -1,0 +1,242 @@
+document.writeln("<div  id=\'hengtu\'></div>");
+const links = [
+    //【1】7217
+    "https://7217al2.com:59789/aaa004.html",
+     //【2】9659
+    "https://www.9659061.com/nice.htm?21183841",
+     //【3】34.vip
+    "https://45.192.225.12:5029/?cid=7097263",
+     //【4】7188
+    "https://7188282.com:7188/qqxb15.html",
+    //【5】46466
+    "https://103.87.243.174:4235/ad/46/27049.html",
+    //【6】50031
+    "https://1121fk7.5004512.top:500/ad88.html?900637823#88mt07",
+    //【7】6268
+    "https://1121fw6.62684168.top:6268/ad88.html?9704#bmw908",
+    //【8】3400
+    "https://192.238.202.186/?id=7250",
+    //【9】3378
+    "https://3378215.com:3378/zaza01.html",
+    //【10】5048
+    "https://jsgg.504802.top:5048/",
+    //【11】9759
+    "https://1121nu.97597809.top:9759/facai.html?195674404#88yh07",
+    //【12】6168
+    "https://s61686829.com:6168/aac114.html",
+    //【13】8258
+    "https://82582255.vip:8258/ddd120.html",
+    //【14】2231
+    "https://22313456.com:7731/fafafa1095.html",
+    //【15】0842
+    "https://www.9274j.com/49",
+    //【16】4446
+    "https://192.238.202.170/?id=677131031",
+    //【17】3318
+    "https://149.104.142.52:10001/zcccy1.html",
+    //【18】4499
+    "https://888.449998.app:4499/#/pages/register/register?promoteCode=008062",
+    //【19】5386
+    "https://862.53tz86.vip:5386/ad88.html?93835",
+    //【20】8932
+    "https://zhuque.8932zq1.app:59789/zq514.html",
+    //【21】9603
+    "https://www.9603fienenf.com/nice.htm?1691",
+    //【22】9113
+    "https://9113z1.com/aaa001.html",
+    //【23】30222
+    "https://154.31.202.120:30222/014967.html",
+    //【24】9205
+    "https://www.cp9238c.com:9238/zqzq501.html",
+    //【25】3019
+    "https://154.196.3.140:6446/?id=2717",
+    //【26】5336
+    "https://103.142.244.27:5336/?id=656",
+    //【27】4933
+    "https://0149am.4933cp50.app:4933/",
+    //【28】5699
+    "https://108.187.0.189:1115/299ad/vam998am.html",
+    //【29】N55
+    "https://www.n55091.com/nice.htm?8199",
+    //【30】3333
+    "https://www.3333ll.gg/bb",
+    //【31】7998
+    "https://530942.click/",
+    //【32】5967
+    "https://www.lokn5967.com/nice.htm?8901",
+    //【33】49.cc
+    "https://49.1994942.app:2026/#/pages/register/register?promoteCode=041177",
+    //【34】222
+    "https://www.2222ss.gg/ii",
+    //【35】cai48
+    "https://boss.cai48j.cc:4848/",
+    //【36】22.gg
+    "https://www.22dd.gg/bb",
+    //【37】6704
+    "https://www.6704667.com/aaa",
+    //【38】8932
+    "https://zhuque.8932zq1.app:59789/zq513.html",
+    //【39】2231
+    "https://22313456.com:7731/fafafa1095.html",
+    //【40】5555.GG
+    "https://www.0284m.com/aa",
+    //【41】7941
+    "https://www.7941jj.com/bbb",
+    //【42】6298
+    "https://abc.6298oko.com/nice.htm?6545",
+    //【43】2496
+    "https://www.2496cc.com/bb",
+    //【44】开元棋牌
+    "https://c9222.62683485.top:6268/good.html?cid=9788562#mbh8808",
+    //【45】3569
+    "https://1121jok.35694150.top:3569/ad88.html?106095832#88jnc83",
+    //【46】347
+    "https://153.43.11.183:5012/?cid=8028413",
+    //【48】7369
+    "https://1121d0w.73692301.top:7369/ad88.html?8016#sx8016",
+    //【49】33323.com
+    "https://103.87.240.7:11307/23ad/25049.html",
+    //【50】2532.com
+    "https://v09-08f28.2532erghkj20.pro/3138.html",
+    //【51】7625
+    "https://76258858f.com/nice.htm?7189",
+    //【52】9857
+    "https://98578028.com:9857/9857net13.html",
+    //【53】4440
+    "https://laicai.4440hu.cc/",
+    //【54】9568
+    "https://9568089.com/nice.htm?07233"
+];
+
+const images = [
+    //【1】7217
+    "https://tp.7217tp.com/712X45.gif",
+    //【2】9659
+    "https://www.tttt9659abc.com/98080.gif",
+    //【3】34.vip
+    "https://tuchuang222.bum3bjmj4rhdou7l1231.com/34vip60.gif",
+    //【4】7188
+    "https://7188tp1.com/960801.gif",
+    //【5】46466
+    "https://nj46y46.buz6a66y46b46.top/31bc2fd454823bfeb2e8c7d67700a924.gif",
+    //【6】50031
+    "https://pm2026.sspic.net/mtpm-2hex98e98y",
+    //【7】6268
+    "https://pm2026.sspic.net/bmwpm-fr50s1e84b",
+    //【8】3400
+    "https://34340819.tupian3400cdn.com/34liutu.gif",
+    //【9】3378
+    "https://3378tp04.com/3378960x80.gif",
+    //【10】5048
+    "https://tu.4440tp.com/970X70jsfc.gif",
+    //【11】9759
+    "https://pm2026.sspic.net/yhpm-fqiisrxees",
+    //【12】6168
+    "https://s6168ggtp07.com/712x45.gif",
+    //【13】8258
+    "https://www.8258abtp.vip:8258/712x45.gif",
+    //【14】2231
+    "https://tp.2231ggtp.com:2231/tp/712x45.gif",
+    //【15】0842
+    "https://costa579.top/0842.gif",
+    //【16】4446
+    "https://sdfgsdgddfgsgfgfrhjrgfdgd.tupian2324kkb.com/storage/assets/img_960f3a802.gif",
+    //【17】3318.VIP
+    "https://3318abtp.vip:3318/tp/960x61.gif",
+    //【18】4499
+    "https://waitou.49588f.app/waitou/lan80.gif",
+    //【19】5386
+    "https://653.yyyy5386.vip:8686/712x45com.gif",
+    //【20】8932
+    "https://www.tp8932tp.com/tp/gytm80.gif",
+    //【21】9603
+    "https://www.7189099.com/22.gif",
+    //【22】9113
+    "https://9113tp.vip/tp/720x90.gif",
+    //【23】30222
+    "https://img.imgdayl001.top:2026/222/80070.gif",
+    //【24】9205
+    "https://9238tp.com:9238/tp/kmt80.gif",
+    //【25】3019
+    "https://imgzhuan.tubai8wcimqvsbppzltv.com/2026301960.gif",
+    //【26】5336
+    "https://img533.tubai20250421img.com/2026533660.gif",
+    //【27】4933
+    "https://waitou.49588f.app/waitou/c493380.gif",
+    //【28】5699
+    "https://www.nt29u29.buz5z59a29c29.top/c48e8a34d6a61b72c3a08ef82b99852a.gif",
+    //【29】N55
+    "https://www.n556789.com/cc988.gif",
+    //【30】3333
+    "https://costa579.top/3333gg.gif",
+    //【31】7998
+    "https://picad.7998186.com/dftggif.gif",
+    //【31】8219
+    "https://9332tp8.com/tp/960x60.gif",
+    //【32】5967
+    "https://fc751.5967zh63.com:5967/gg.gif",
+    //【33】49.cc
+    "https://waitou.49588f.app/waitou/80tujx49cc.gif",
+    //【34】222
+    "https://costa579.top/2222-2.gif",
+    //【35】cai48
+    "https://tu.4440tp.com/c48com.gif",
+    //【36】22.gg
+    "https://costa579.top/22.gif",
+    //【37】6704
+    "https://costa579.top/6704.gif",
+    //【38】8932
+    "https://www.tp8932tp.com/tp/gytm80.gif",
+    //【39】2231
+    "https://tp.2231ggtp.com:2231/tp/712x45.gif",
+    //【40】5555.GG
+    "https://costa579.top/5555.gif",
+    //【41】7941
+    "https://costa579.top/7941.gif",
+    //【42】6298
+    "https://www.6298099.com/888.gif",
+    //【43】2496
+    "https://costa579.top/2496.gif",
+    //【44】开元棋牌
+    "https://pm2026.sspic.net/mbh2pm-g9mz2cjt7e",
+    //【45】3569
+    "https://pm2026.sspic.net/jncpm-5zmy0gyddi",
+    //【46】347
+    "https://tuchuang222.bum3bjmj4rhdou7l1231.com/347com60.gif",
+    //【48】7369
+    "https://pm2026.sspic.net/sxpm-1sw0la9q1v",
+    //【49】33323.com
+    "https://nj23h23.buz5a88l23a23.top/b4f78738fb18606cb90b3a4ba0d27f48.gif",
+    //【50】2532.com
+    "https://2532rrkwfr24.pro:6188/2532-960x60.gif",
+    //【51】7625
+    "https://7620007.com/7625.gif",
+    //【52】9857
+    "https://9857tp.app/9857960x80.gif",
+    //【53】4440
+    "https://tu.4440img.cc/960x80.gif",
+    //【54】9568
+    "https://hy52.9568tp001.com:9568//fa88.gif"
+];
+
+const linkImagePairs = links.map((link, index) => ({ link, image: images[index] }));
+
+function shuffleArray(array) {
+    return array.sort(() => Math.random() - 0.5);
+}
+
+function generateRandomImageLinks() {
+    let shuffledPairs = shuffleArray([...linkImagePairs]);
+    let html = "";
+
+    for (let i = 0; i < 13; i++) {  
+        const pair = shuffledPairs[i % shuffledPairs.length];
+        html += `<div class="imgcssweb">
+                    <a target="_blank" href="${pair.link}">
+                        <img border="0" src="${pair.image}" alt="特码赔率高，彩票视讯等游戏">
+                    </a>
+                 </div>\n`;
+    }
+    return html;
+}
+document.getElementById("hengtu").innerHTML =generateRandomImageLinks();

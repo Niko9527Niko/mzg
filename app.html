@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>下载与分享组件</title>
+  <style>
+      .download66 {
+          position: fixed;
+          width: 70px;
+          right: 0px;
+          height: 50px;
+          bottom: 60px;
+          z-index: 999;
+          text-align: center;
+      }
+      .download66 p {
+          font-size: 1rem;
+          font-weight: 700;
+          color: #fff;
+          line-height: 44px;
+      }
+
+      .download66 .btn {
+          height: 50px;
+          width: 50px;
+          line-height: 25px;
+          text-align: right;
+          background-color: #ec0909;
+          position: absolute;
+          right: 0px;
+          font-size: 16px;
+          border: none;
+          color: #fff;
+          border-radius: 25px 0 0 25px;
+          padding-right: 8px;
+          box-shadow: -1px 3px 1px #c81616;
+          border: 1px solid #fff;
+      }
+      .download66 i.close {
+          display: block;
+          height: 14px;
+          width: 14px;
+          float: left;
+          background-image: url(gb.png);
+          background-size: 100%;
+      }
+
+      #share {
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          color: #fff;
+          font-size: 14px;
+          border-radius: 40px;
+          box-sizing: unset;
+          border: solid 4px rgba(255,255,255,.8);
+          background: rgba(255,0,0,8);
+          position: fixed;
+          right: 10px;
+          bottom: 140px;
+          z-index: 1;
+          cursor: pointer;
+      }
+      #modal {
+          font-family: Arial, sans-serif;
+          display: none;
+          z-index: 99999999;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0,0,0.5);
+          align-items: center;
+          justify-content: center;
+      }
+      #modal .container {
+          width: 80%;
+          max-width: 400px;
+          background-color: #fff;
+          border-radius: 5px;
+          padding: 20px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      #modal .header2 {
+          background: linear-gradient(90deg, #00cc99, #08c595);
+          padding: 10px;
+          border-radius: 5px;
+          color: white;
+          font-size: 24px;
+          font-weight: bold;
+          text-align: center;
+          margin-bottom: 5px;
+      }
+      #modal .message {
+          font-size: 21px;
+          text-align: center;
+          margin-bottom: 10px;
+          margin-top: 15px;
+      }
+      #modal .button {
+          padding: 10px 10px;
+          border-radius: 5px;
+          border: none;
+          font-size: 18px;
+          cursor: pointer;
+          width: 100%;
+          margin: 5px auto;
+      }
+      #modal .blue-button {
+          background-color: #0bab33;
+          color: white;
+      }
+      #modal .gray-button {
+          background-color: #95a5a6;
+          color: white;
+      }
+      #modal #countdown span {
+          color: red;
+      }
+      #countdown {
+          text-align: center;
+      }
+      #countdown2 {
+          text-align: center;
+          color: red;
+          font-size: 19px;
+      }
+      #modal .link {
+          font-size: 1px;
+          height: 1px;
+          color: #fff;
+          text-align: center;
+          border: 1px solid #e0e0e0;
+          word-wrap: break-word;
+      }
+
+      #qrcode {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 15px;
+          margin-bottom: 15px;
+      }
+
+      #qrcode img {
+          margin: auto;
+      }
+
+      .bottom-banner {
+          width: 100%;
+          max-width: 720px;
+          position: fixed;
+          bottom: 0px;
+          left: 0px;
+          right: 0;
+          margin: 0 auto;
+          z-index: 999;
+      }
+      .banner-content {
+          height: 40px;
+          background-color: rgba(0,0,0,.7);
+          width: 100%;
+          border-top: 1px solid #fff;
+          text-align: center;
+          font-weight: 700;
+          color: #fff;
+          line-height: 40px;
+          cursor: pointer;
+      }
+      .share-text {
+          color: #fff;
+          font-weight: bold;
+          padding: 5px 2px;
+          font-size: 20px;
+      }
+      .share-highlight {
+          background-color: #ec0909;
+          border-radius: 5px;
+          color: #fff;
+          margin-left: 6px;
+          padding: 4px 4px;
+      }
+  </style>
+</head>
+<body>
+<!-- 下载按钮 -->
+<div id="guanbia" class="download66">
+  <a target="_blank" href="https://ye-5.za.ixia.byzicons.com:8443/0149dh/" class="btn" id="apas">下载<br>APP</a>
+</div>
+
+<!-- 底部横幅 -->
+<div class="bottom-banner">
+  <div class="banner-content" onclick="kaifenx();">
+    <span onclick="showModal()" class="share-text">身边人打不开本站怎么办？请<span class="share-highlight">点击分享</span></span>
+  </div>
+</div>
+
+<!-- 分享弹窗 -->
+<div id="modal">
+  <div class="container">
+    <div class="header2">链接分享</div>
+    <div class="message">链接已复制，请发送给好友！</div>
+    <div class="link" id="shareLink">0149</div>
+    <div id="qrcode"></div>
+    <div id="countdown2">或面对面分享，使用浏览器扫码</div>
+    <div id="countdown">弹窗将在 <span>20</span> 秒后自动关闭</div>
+    <div>
+      <button class="button blue-button" onclick="openApp('weixin://')">打开微信</button>
+      <button class="button gray-button" onclick="closeModal()">立即关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- 引入QRCode库 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+  function showModal() {
+    let currentPageURL = window.location.href;
+    let formattedText = `${currentPageURL}#FX`;
+    document.getElementById('shareLink').innerText = formattedText;
+    document.getElementById('modal').style.display = 'flex';
+
+    copyToClipboard(formattedText);
+
+    document.getElementById('qrcode').innerHTML = "";
+    new QRCode(document.getElementById("qrcode"), {
+      text: currentPageURL,
+      width: 150,
+      height: 150,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    let countdown = 20;
+    let countdownInterval = setInterval(() => {
+      countdown--;
+      document.querySelector('#countdown span').innerText = countdown;
+
+      if (countdown === 0) {
+        closeModal();
+        clearInterval(countdownInterval);
+      }
+    }, 1000);
+  }
+
+  function copyToClipboard(text) {
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert('内容已成功复制到剪贴板！');
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+
+  function openApp(url) {
+    window.open(url, '_blank');
+  }
+
+  function closeBanner() {
+    // 隐藏包含横幅的最外层div
+    document.querySelector('.bottom-banner').style.display = 'none';
+  }
+
+  function kaifenx() {
+    // 您的kaifenx函数的代码
+    console.log('执行kaifenx函数');
+    showModal();
+  }
+</script>
+</body>
+</html>
