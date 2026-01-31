@@ -2,13 +2,17 @@
 @import url("style.css");
 /* CSS Document */
 html, body {
-    font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif; ΢���ź�;
+    font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
     color: #000;
     font-size: 14px;
 }
 html{
     background: #F4F4F4;
-    
+
+}
+
+.lottery-page {
+  margin: 20px auto;
 }
 body{
     max-width: 720px;
@@ -24,12 +28,12 @@ body{
 
 * {
     padding: 0;
-    
+
     border: 0;
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 ol, ul {
@@ -82,15 +86,9 @@ button {
 }
 input{outline:none}
 
-.clearfix:before, .clearfix:after {
-    content: "";
-    display: table;
-}
-.clearfix:after {
-    clear: both;
-}
+
 table{
     table-layout: fixed;
-    width: 100%�?
+    width: 100%;
 }
 @import url("style.css")

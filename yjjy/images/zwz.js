@@ -1,2 +1,0 @@
-document.writeln("<img src=\'/yjjy/images/logoa.png' alt=\'\' class=\'logo-img\'>");
-document.writeln("<img src=\'/yjjy/images/0149338.png' alt=\'\' class=\'logo-img\' style=\'width:175px; margin-left: -145px;\'>");
