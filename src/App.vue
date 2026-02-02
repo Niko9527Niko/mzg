@@ -14,6 +14,9 @@
       </main>
     </div>
 
+    <OfficialSites
+      title="澳門官方（旗下網站）"
+    />
     <!-- 其他组件 -->
     <FooterComponent />
     <!-- 返回顶部 -->
@@ -35,6 +38,7 @@ import FooterComponent from './components/FooterComponent.vue'
 import LotteryPage from '@/components/LotteryPage.vue'
 import { ref, onMounted } from 'vue'
 import ShareDownloadComponent from '@/components/ShareDownloadComponent .vue'
+import OfficialSites from '@/components/OfficialSites.vue'
 const headerHeight = ref(60)
 const updateHeaderHeight = () => {
   const header = document.querySelector('.header-class') // 你的Header选择器
@@ -53,6 +57,7 @@ export default {
   name: 'App',
 
   components: {
+    OfficialSites,
     ShareDownloadComponent,
     LotteryPage,
     HeaderComponent,

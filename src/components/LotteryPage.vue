@@ -40,20 +40,20 @@
       <div class="riqi">
         <span style="color: #3333cc"><b>今:</b></span>
         <span style="color: #ff0000"
-          ><b>{{ currentDate.month }}</b></span
+        ><b>{{ currentDate.month }}</b></span
         >
         <span style="color: #3333cc"><b>月</b></span>
         <span style="color: #ff0000"
-          ><b>{{ currentDate.day }}</b></span
+        ><b>{{ currentDate.day }}</b></span
         >
         <span style="color: #3333cc"><b>日.</b></span>
         <span v-html="currentDate.weekday"></span>
 
         <span style="color: #3333cc"
-          ><span class="d"><b>农历:</b></span></span
+        ><span class="d"><b>农历:</b></span></span
         >
         <span style="color: #ff0000"
-          ><b>{{ lunarInfo.lunarMonth }}</b></span
+        ><b>{{ lunarInfo.lunarMonth }}</b></span
         >
         <span style="color: #3333cc"><b>月</b></span>
         <b>{{ lunarInfo.lunarDay }}</b>
@@ -62,17 +62,17 @@
         <span class="d">
           <span style="color: #3333cc"><b>煞</b></span>
           <b
-            ><span style="color: #ff0000">{{ lunarInfo.location }} </span></b
+          ><span style="color: #ff0000">{{ lunarInfo.location }} </span></b
           >
           <span style="color: #3333cc"><b>正冲生肖:</b></span>
           <b
-            ><span style="color: #ff0000">{{ lunarInfo.animal }}</span></b
+          ><span style="color: #ff0000">{{ lunarInfo.animal }}</span></b
           >
         </span>
         <br />
 
         <span
-          ><b>{{ currentTime }} </b></span
+        ><b>{{ currentTime }} </b></span
         >
       </div>
     </div>
@@ -89,6 +89,7 @@
         bgcolor="#FFFFFF"
         class="qxtable"
       >
+        <tbody>
         <tr>
           <td
             width="100%"
@@ -107,9 +108,9 @@
             "
           >
             <span class="xz2"
-              ><font color="#0000FF"
-                >站长推荐：快捷进站.&nbsp;自定网址.&nbsp;不怕打不开.</font
-              ></span
+            ><font color="#0000FF"
+            >站长推荐：快捷进站.&nbsp;自定网址.&nbsp;不怕打不开.</font
+            ></span
             >
           </td>
         </tr>
@@ -130,6 +131,7 @@
             </span>
           </td>
         </tr>
+        </tbody>
       </table>
     </div>
 
@@ -189,6 +191,9 @@
           class="qxtable"
           id="table2"
         >
+          <tbody>
+
+
           <tr v-for="(row, index) in PredictionTables" :key="index">
             <td
               :colspan="row.colspan || 1"
@@ -200,6 +205,7 @@
               <span v-html="row.html || row.text"></span>
             </td>
           </tr>
+          </tbody>
         </table>
       </font>
     </div>
@@ -287,7 +293,7 @@ export default {
   components: {
     LotteryDisplay,
     AdContainer,
-    PredictionTable,
+    PredictionTable
   },
   data() {
     return {
@@ -296,14 +302,14 @@ export default {
       currentDate: {
         month: new Date().getMonth() + 1,
         day: new Date().getDate(),
-        weekday: '',
+        weekday: ''
       },
       lunarInfo: {
         lunarMonth: '',
         lunarDay: '',
         location: '',
         animal: '',
-        lunarYear: '',
+        lunarYear: ''
       },
       predictionList: [
         { period: '029期', name: '中特网直击', title: '平特一肖', desc: '灭庄', link: 'ztw' },
@@ -311,7 +317,7 @@ export default {
         { period: '029期', name: '摇钱树', title: '绝杀四肖', desc: '同揭分晓', link: 'yqs' },
         { period: '029期', name: '诸葛亮', title: '密研一波', desc: '强力推荐', link: 'zgl' },
         { period: '029期', name: '刘伯温', title: '必看单双', desc: '稳如泰山', link: 'lbw' },
-        { period: '029期', name: '王中王', title: '男女中特', desc: '连准多期', link: 'wzw' },
+        { period: '029期', name: '王中王', title: '男女中特', desc: '连准多期', link: 'wzw' }
       ],
       predictions: [
         { period: '029期', name: '中特网直击', title: '平特一肖', desc: '灭庄', link: 'ztw' },
@@ -319,7 +325,7 @@ export default {
         { period: '029期', name: '摇钱树', title: '绝杀四肖', desc: '同揭分晓', link: 'yqs' },
         { period: '029期', name: '诸葛亮', title: '密研一波', desc: '强力推荐', link: 'zgl' },
         { period: '029期', name: '刘伯温', title: '必看单双', desc: '稳如泰山', link: 'lbw' },
-        { period: '029期', name: '王中王', title: '男女中特', desc: '连准多期', link: 'wzw' },
+        { period: '029期', name: '王中王', title: '男女中特', desc: '连准多期', link: 'wzw' }
       ],
       predictionTables: [
         {
@@ -327,19 +333,19 @@ export default {
           bgcolor: '#F4F4F4',
           width: '43.5%',
           color: '#000080',
-          html: '<font color="#000080">七肖:</font><font color="#FF0000"><span style="background-color: #FFFF00">兔</span>牛虎蛇猴鸡龙</font>',
+          html: '<font color="#000080">七肖:</font><font color="#FF0000"><span style="background-color: #FFFF00">兔</span>牛虎蛇猴鸡龙</font>'
         },
         {
           text: '⑦码: 39.05.28.25.22.21.38',
           bgcolor: '#F4F4F4',
-          html: '<font color="#000080">⑦码:</font> <font color="#FF0000"><span style="background-color: #FFFF00">39</span>.05.28.25.22.21.38</font>',
+          html: '<font color="#000080">⑦码:</font> <font color="#FF0000"><span style="background-color: #FFFF00">39</span>.05.28.25.22.21.38</font>'
         },
         {
           colspan: 2,
           text: '018期: 妈祖阁出版<兔-39>内部助力',
           style: 'text-align:center; background: #FFCCFF;',
-          html: '<font color="#0000FF">018期: 妈祖阁出版</font><font color="#FF0000"><span class="xz3">&lt;<span style="background-color: #FFFF00">兔</span>-<span style="background-color: #FFFF00">39</span>&gt;</span></font><font color="#0000FF">内部助力</font>',
-        },
+          html: '<font color="#0000FF">018期: 妈祖阁出版</font><font color="#FF0000"><span class="xz3">&lt;<span style="background-color: #FFFF00">兔</span>-<span style="background-color: #FFFF00">39</span>&gt;</span></font><font color="#0000FF">内部助力</font>'
+        }
       ],
       ads: [
         { text: '029期: 大三巴→【一肖爆特】←横扫黑庄', link: 'dsb', target: '#2784901' },
@@ -349,52 +355,54 @@ export default {
           text: '029期: 20KJ网→【三肖三码】←精心打造',
           link: 'https://hsyw-rw1sq.20kj-mksde.app:10099/#27849',
           target: '_blank',
-          external: true,
+          external: true
         },
         {
           text: '029期: 诸葛亮→【家野爆中】←三期必出',
           link: 'https://zqnatsd-zgl.taiyang.xn--5tzm5g:2096/html/gg/37849.html',
           target: '_blank',
-          external: true,
+          external: true
         },
-        { text: '029期: 神算子→【三肖必中特】←实力料', link: 'ssz', target: '#2784906' },
+        { text: '029期: 神算子→【三肖必中特】←实力料', link: 'ssz', target: '#2784906' }
       ],
       imageAds: [
         {
           link: 'https://7217al2.com:59789/aaa004.html',
           image: 'https://tp.7217tp.com/712X45.gif',
-          alt: '点击查看.',
+          alt: '点击查看.'
         },
         {
           link: 'https://www.9659061.com/nice.htm?21183841',
           image: 'https://www.tttt9659abc.com/98080.gif',
-          alt: '点击查看.',
+          alt: '点击查看.'
         },
         {
           link: 'https://45.192.225.12:5029/?cid=7097263',
           image: 'https://tuchuang222.bum3bjmj4rhdou7l1231.com/34vip60.gif',
-          alt: '点击查看.',
+          alt: '点击查看.'
         },
         {
           link: 'https://7188282.com:7188/qqxb15.html',
           image: 'https://7188tp1.com/960801.gif',
           alt: '点击查看.',
-          style: 'vertical-align: middle;',
-        },
+          style: 'vertical-align: middle;'
+        }
       ],
       lotteryScript: '',
       timer: null,
       titleString: '妈祖阁『一波主8码』',
       tableHtmlString: `
         <table border="1" width="100%" class="duilianpt" bgcolor="#ffffff" cellspacing="0" bordercolor="#FFFFFF">
+        <tbody>
           <tr>
             <td><font color="#000000">028期</font><span class="zl">『<span style="background-color: #FFFF00">蓝波</span>』</span><font color="#000000">主:</font><span class="zl">04.10.14.20.26.36.37.42</span></td>
           </tr>
           <tr>
             <td><font color="#000000">029期</font><span class="zl">『红波』</span><font color="#000000">主:</font><span class="zl">01.12.07.30.18.19.08.40</span></td>
           </tr>
+          </tbody>
         </table>
-      `,
+      `
     }
   },
   computed: {
@@ -411,20 +419,20 @@ export default {
     // 计算属性：农历显示
     displayLunar() {
       return `${this.lunarInfo.lunarYear}年 ${this.lunarInfo.lunarMonth}月${this.lunarInfo.lunarDay} ${this.lunarInfo.animal} ${this.lunarInfo.location}`
-    },
+    }
   },
   methods: {
     // 计算星期
     calculateWeekday() {
       const day = new Date().getDay()
       const weekdays = [
-        "<span style='color:#FF0000'><b>星期日.</b></span>",
-        "<span style='color:#FF0000'><b>星期一.</b></span>",
-        "<span style='color:#FF0000'><b>星期二.</b></span>",
-        "<span style='color:#FF0000'><b>星期三.</b></span>",
-        "<span style='color:#FF0000'><b>星期四.</b></span>",
-        "<span style='color:#FF0000'><b>星期五.</b></span>",
-        "<span style='color:#FF0000'><b>星期六.</b></span>",
+        '<span style=\'color:#FF0000\'><b>星期日.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期一.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期二.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期三.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期四.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期五.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期六.</b></span>'
       ]
       this.currentDate.weekday = weekdays[day]
     },
@@ -467,7 +475,7 @@ export default {
           lunarDay: lunar.lunarDate.split('月')[1].replace('日', ''),
           location: lunar.location,
           animal: lunar.animal,
-          lunarYear: lunar.lunarYear,
+          lunarYear: lunar.lunarYear
         }
       }
 
@@ -493,7 +501,7 @@ export default {
     // 处理图片广告点击
     handleImageAdClick(ad) {
       window.open(ad.link, '_blank')
-    },
+    }
   },
   mounted() {
     this.init()
@@ -502,7 +510,7 @@ export default {
     if (this.timer) {
       clearInterval(this.timer)
     }
-  },
+  }
 }
 </script>
 

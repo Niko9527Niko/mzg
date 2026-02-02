@@ -41,7 +41,7 @@
       </tr>
       <tr v-for="(element, index) in fiveElements" :key="index">
         <td>
-          <span :style="{ color: element.color }">{{ element.name }}</span>
+          <font :style="{ color: element.color }">{{ element.name }}</font>
         </td>
         <td class="a-left">
           <span
