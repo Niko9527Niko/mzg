@@ -139,7 +139,7 @@ export default {
     },
     nav2Item1Width: {
       type: String,
-      default: '77%',
+      default: '40%',
     },
     nav2Item1Link: {
       type: String,
@@ -156,7 +156,7 @@ export default {
     },
     nav2Item2Width: {
       type: String,
-      default: '23%',
+      default: '60%',
     },
     nav2Item2Link: {
       type: String,
@@ -250,7 +250,7 @@ export default {
     // 导航2样式
     nav2Style() {
       return {
-        height: this.nav2Height,
+        height: this.nav2Heightnav2Height,
         fontSize: this.nav2FontSize,
         lineHeight: this.nav2Height,
       }
@@ -259,7 +259,7 @@ export default {
     // 导航3样式
     nav3Style() {
       return {
-        marginTop: `-${parseInt(this.nav2Height)}px`,
+        marginTop: `2px`,
       }
     },
   },

@@ -1,16 +1,34 @@
-import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-  ],
+  plugins: [vue()],
+
+  build: {
+    // 关键配置：指定多个入口HTML
+    rollupOptions: {
+      input: {
+        // 第一个页面：index.html
+        index: resolve(__dirname, 'index.html'),
+        // 第二个页面：lhkl8.html
+        lhkl8: resolve(__dirname, 'lhkl8.html'),
+      },
+      output: {
+        // 打包后的文件命名规则
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]',
+      },
+    },
+
+    // 输出目录
+    outDir: 'dist',
+  },
+
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': resolve(__dirname, 'src'),
     },
   },
 })

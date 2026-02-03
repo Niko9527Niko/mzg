@@ -32,12 +32,12 @@
 
 <script setup lang="ts">
 
-import ShareDownloadComponent from '@/components/ShareDownloadComponent .vue'
-import OfficialSites from '@/components/OfficialSites.vue'
-import FooterComponent from '@/components/FooterComponent.vue'
-import LotteryPage from '@/components/LotteryPage2.vue'
-import ZodiacTable from '@/components/ZodiacTable.vue'
-import FixedHeader from '@/components/FixedHeader.vue'
+import OfficialSites from './components/OfficialSites.vue'
+import FooterComponent from './components/FooterComponent.vue'
+import LotteryPage from './components/LotteryPage2.vue'
+import ZodiacTable from './components/ZodiacTable.vue'
+import FixedHeader from './components/FixedHeader.vue'
+import ShareDownloadComponent from '@/components/ShareDownloadComponent.vue'
 </script>
 
 <style scoped>

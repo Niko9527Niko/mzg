@@ -37,7 +37,7 @@ import ZodiacTable from './components/ZodiacTable.vue'
 import FooterComponent from './components/FooterComponent.vue'
 import LotteryPage from '@/components/LotteryPage.vue'
 import { ref, onMounted } from 'vue'
-import ShareDownloadComponent from '@/components/ShareDownloadComponent .vue'
+import ShareDownloadComponent from '@/components/ShareDownloadComponent.vue'
 import OfficialSites from '@/components/OfficialSites.vue'
 const headerHeight = ref(60)
 const updateHeaderHeight = () => {
