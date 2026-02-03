@@ -408,10 +408,10 @@ export default {
   }
 
   .list-title {
-    font-size: 14px;
+    font-size: 26px;
   }
   .list-title .title-text {
-    font-size: 14px;
+    font-size: 26px;
   }
 
   .duilianpt td {

@@ -742,10 +742,10 @@ body {
   font-size: 38px;
 }
 .qxtable.left{
-  text-align: left;
+  text-align: center;
 }
 .qxtable.left th{
-  text-align: left;
+  text-align: center;
 }
 .qxtable.yxym{
   table-layout:auto;
@@ -773,8 +773,6 @@ body {
   font-size: 20px;
 }
 .list-title{
-  height: 28px;
-  line-height: 23px;
   font-size: 16pt;
   text-align: center;
   border-bottom: 1px solid #738e9f;
@@ -879,7 +877,7 @@ ul {margin: 1px;}
   font-weight: bold;
   border:0px; solid:#636262;
   width: 100%;
-  text-align: left;
+  text-align: center;
   white-space: nowrap;
 }
 .liuxiao{
@@ -1327,7 +1325,7 @@ ul {margin: 1px;}
     font-size: 15pt
   }
   .gg td a{
-    text-align: left;
+    text-align: center;
   }
 }
 @media screen and (max-width: 429px){

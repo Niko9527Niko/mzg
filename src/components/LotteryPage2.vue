@@ -5,44 +5,9 @@
 
     <!-- 顶部导航 -->
     <nav class="subnav">
-      <a href="#kjjl">
-        <img src="@/assets/images/icon1.png" alt="" />
-        <span>开奖记录</span>
-      </a>
-
-      <a href="#gszq">
-        <img src="@/assets/images/icon2.png" alt="" />
-        <span>高手专区</span>
-      </a>
-
-      <a href="#jdtk">
-        <img src="@/assets/images/icon3.png" alt="" />
-        <span>经典图库</span>
-      </a>
-
-      <a href="#wzyw">
-        <img src="@/assets/images/icon4.png" alt="" />
-        <span>五至一尾</span>
-      </a>
-
-      <a
-        href="https://4dy-3u5.fn.zaogradient.com:2053/tool/tool.html"
-        target="_blank"
-        rel="noopener"
-      >
-        <img src="@/assets/images/icon5.png" alt="" />
-        <span>挑码助手</span>
-      </a>
+      <img style="width: 100%;height: auto" src="@/assets/images/kl8kjgz.png" alt="" />
     </nav>
 
-    <div class="box pad temple-section">
-
-      <TempleInteraction
-        @lottery-drawn="handleLotteryDrawn"
-        @cup-thrown="handleCupThrown"
-        @ritual-complete="handleRitualComplete"
-      />
-    </div>
     <DateTimeRecommend
       ref="dateTimeRef"
       @time-update="handleTimeUpdate"
@@ -109,7 +74,7 @@
           <tbody>
 
 
-          <tr v-for="(row, index) in predictionTables" :key="index">
+          <tr v-for="(row, index) in PredictionTables" :key="index">
             <td
               :colspan="row.colspan || 1"
               :style="row.style"
@@ -203,12 +168,10 @@ import PredictionTable from './base/PredictionTable.vue'
 import AdContainer from '@/components/base/AdContainer.vue'
 import LotteryDisplay from '@/components/base/LotteryDisplay.vue'
 import DateTimeRecommend from '@/components/DateTimeRecommend.vue'
-import TempleInteraction from '@/components/TempleInteraction.vue'
 
 export default {
   name: 'LotteryComponent',
   components: {
-    TempleInteraction,
     DateTimeRecommend,
     LotteryDisplay,
     AdContainer,
@@ -216,6 +179,20 @@ export default {
   },
   data() {
     return {
+      currentTime: '',
+      randomPrefix: '00',
+      currentDate: {
+        month: new Date().getMonth() + 1,
+        day: new Date().getDate(),
+        weekday: ''
+      },
+      lunarInfo: {
+        lunarMonth: '',
+        lunarDay: '',
+        location: '',
+        animal: '',
+        lunarYear: ''
+      },
       predictionList: [
         { period: '029期', name: '中特网直击', title: '平特一肖', desc: '灭庄', link: 'ztw' },
         { period: '029期', name: '彩霸王', title: '⒌肖主一码', desc: '精心准', link: 'cbw' },
@@ -224,8 +201,15 @@ export default {
         { period: '029期', name: '刘伯温', title: '必看单双', desc: '稳如泰山', link: 'lbw' },
         { period: '029期', name: '王中王', title: '男女中特', desc: '连准多期', link: 'wzw' }
       ],
-      // 修正变量名：驼峰命名
-      predictionTables: [  // 改为小写驼峰，与模板一致
+      predictions: [
+        { period: '029期', name: '中特网直击', title: '平特一肖', desc: '灭庄', link: 'ztw' },
+        { period: '029期', name: '彩霸王', title: '⒌肖主一码', desc: '精心准', link: 'cbw' },
+        { period: '029期', name: '摇钱树', title: '绝杀四肖', desc: '同揭分晓', link: 'yqs' },
+        { period: '029期', name: '诸葛亮', title: '密研一波', desc: '强力推荐', link: 'zgl' },
+        { period: '029期', name: '刘伯温', title: '必看单双', desc: '稳如泰山', link: 'lbw' },
+        { period: '029期', name: '王中王', title: '男女中特', desc: '连准多期', link: 'wzw' }
+      ],
+      predictionTables: [
         {
           text: '七肖:',
           bgcolor: '#F4F4F4',
@@ -288,7 +272,6 @@ export default {
       ],
       lotteryScript: '',
       timer: null,
-      randomPrefixTimer: null, // 新增：随机前缀定时器
       titleString: '妈祖阁『一波主8码』',
       tableHtmlString: `
         <table border="1" width="100%" class="duilianpt" bgcolor="#ffffff" cellspacing="0" bordercolor="#FFFFFF">
@@ -321,7 +304,6 @@ export default {
     }
   },
   methods: {
-    // 可以添加处理组件事件的方法
     handleTimeUpdate(newTime) {
       //console.log('时间更新:', newTime)
       // 可以在这里处理时间更新逻辑
@@ -337,29 +319,20 @@ export default {
       //console.log('农历更新:', newLunar)
       // 可以在这里处理农历更新逻辑
     },
-
-    handleLotteryDrawn(number) {
-      console.log('抽到签号:', number)
-      // 可以记录到本地存储或发送到服务器
-      localStorage.setItem('last_lottery', number)
-    },
-
-    handleCupThrown(data) {
-      console.log('掷杯结果:', data)
-    },
-    handleRitualComplete(data){
-      console.log('掷杯结果:', data)
-    },
-
-    // 如果需要手动控制组件，可以通过 ref 调用组件的方法
-    refreshDateTime() {
-      if (this.$refs.dateTimeRef) {
-        this.$refs.dateTimeRef.updateTime()
-        this.$refs.dateTimeRef.updateLunar()
-        this.$refs.dateTimeRef.updatePrefix()
-      }
-    },
     // 计算星期
+    calculateWeekday() {
+      const day = new Date().getDay()
+      const weekdays = [
+        '<span style=\'color:#FF0000\'><b>星期日.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期一.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期二.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期三.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期四.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期五.</b></span>',
+        '<span style=\'color:#FF0000\'><b>星期六.</b></span>'
+      ]
+      this.currentDate.weekday = weekdays[day]
+    },
 
     // 更新时钟
     updateClock() {
@@ -368,66 +341,6 @@ export default {
       const minutes = now.getMinutes().toString().padStart(2, '0')
       const seconds = now.getSeconds().toString().padStart(2, '0')
       this.currentTime = `${hours}:${minutes}:${seconds}`
-    },
-
-    // 生成随机前缀（新增方法）
-    updateRandomPrefix() {
-      const randomNum = Math.floor(Math.random() * 100)
-      this.randomPrefix = randomNum.toString().padStart(2, '0')
-    },
-
-    // 计算农历信息（新增方法）
-    updateLunarInfo() {
-      try {
-        const lunar = calculateLunar()
-        console.log('农历计算结果:', lunar) // 调试用
-
-        if (!lunar) {
-          console.warn('calculateLunar 返回空值')
-          return
-        }
-
-        // 根据返回的数据结构进行解析
-        if (lunar.lunarDate) {
-          // 如果返回的是类似 "正月廿三" 的格式
-          const lunarDateMatch = lunar.lunarDate.match(/(\S+?)月(\S+?)日?/)
-          if (lunarDateMatch) {
-            this.lunarInfo.lunarMonth = lunarDateMatch[1]
-            this.lunarInfo.lunarDay = lunarDateMatch[2]
-          } else {
-            // 直接赋值
-            this.lunarInfo.lunarMonth = lunar.lunarDate
-            this.lunarInfo.lunarDay = ''
-          }
-        }
-
-        // 直接赋值其他字段
-        this.lunarInfo.location = lunar.location || ''
-        this.lunarInfo.animal = lunar.animal || ''
-        this.lunarInfo.lunarYear = lunar.lunarYear || ''
-
-        // 如果仍然为空，设置默认值
-        if (!this.lunarInfo.lunarMonth) {
-          this.setDefaultLunarInfo()
-        }
-
-      } catch (error) {
-        console.error('计算农历信息出错:', error)
-        this.setDefaultLunarInfo()
-      }
-    },
-
-    // 设置默认农历信息（备用）
-    setDefaultLunarInfo() {
-      // 这里可以设置一些默认值或从其他源获取农历信息
-      const defaultLunar = {
-        lunarMonth: '正月',
-        lunarDay: '初一',
-        location: '东',
-        animal: '兔',
-        lunarYear: '癸卯'
-      }
-      this.lunarInfo = { ...defaultLunar }
     },
 
     // 加载开奖脚本
@@ -439,6 +352,36 @@ export default {
       } catch (error) {
         console.error('加载开奖脚本失败:', error)
       }
+    },
+
+    // 初始化
+    init() {
+      // 生成随机前缀
+      this.randomPrefix = Math.floor(Math.random() * 100)
+        .toString()
+        .padStart(2, '0')
+
+      // 计算星期
+      this.calculateWeekday()
+
+      // 计算农历
+      const lunar = calculateLunar()
+      if (lunar) {
+        this.lunarInfo = {
+          lunarMonth: lunar.lunarDate.split('月')[0],
+          lunarDay: lunar.lunarDate.split('月')[1].replace('日', ''),
+          location: lunar.location,
+          animal: lunar.animal,
+          lunarYear: lunar.lunarYear
+        }
+      }
+
+      // 启动时钟
+      this.timer = setInterval(this.updateClock, 1000)
+      this.updateClock()
+
+      // 加载开奖脚本
+      this.loadLotteryScript()
     },
 
     // 处理链接点击
@@ -455,43 +398,14 @@ export default {
     // 处理图片广告点击
     handleImageAdClick(ad) {
       window.open(ad.link, '_blank')
-    },
-
-    // 初始化
-    init() {
-      // 生成随机前缀
-      this.updateRandomPrefix()
-      this.loadLotteryScript()
-
-      // 定时刷新随机前缀（每30秒刷新一次）
-      this.randomPrefixTimer = setInterval(() => {
-        this.updateRandomPrefix()
-      }, 30000)
-
-      // 计算星期
-      //this.calculateWeekday()
-
-      // 计算农历
-      this.updateLunarInfo()
-
-      // 启动时钟
-      this.timer = setInterval(this.updateClock, 1000)
-      this.updateClock()
-
-      // 加载开奖脚本
-      this.loadLotteryScript()
     }
   },
   mounted() {
     this.init()
   },
   beforeUnmount() {
-    // 清除所有定时器
     if (this.timer) {
       clearInterval(this.timer)
-    }
-    if (this.randomPrefixTimer) {
-      clearInterval(this.randomPrefixTimer)
     }
   }
 }

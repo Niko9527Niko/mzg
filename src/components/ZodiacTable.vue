@@ -1,6 +1,9 @@
 <template>
   <div class="sx grey-line">
     <!-- 十二生肖表格 -->
+    <div class="list-title">
+      <font class="title-text">2025年属性知识</font>
+    </div>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <th>２０２５蛇年（十二生肖号码对照）</th>
@@ -709,7 +712,7 @@ body {
   background: #fff;
 }
 .sx td.a-left {
-  text-align: left;
+  text-align: center;
   padding-left: 5px;
   padding-right: 5px;
 }
